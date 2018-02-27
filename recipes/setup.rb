@@ -18,11 +18,12 @@ package 'git' do
 	action :install
 end
 
-file '/etc/motd' do
-	content 'This server is the property of Nui'
+template '/etc/motd' do
+	source 'motd.erb'
+	variables(
+	 :name => 'nam'
+	)
 	action :create
-	owner 'root'
-	group 'root'
 end
 
 
